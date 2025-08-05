@@ -8,6 +8,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Features from "./pages/Features";
+import Pricing from "./pages/Pricing";
+import Enterprise from "./pages/Enterprise";
+import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/Placeholder";
 import FinanceUseCase from "./pages/FinanceUseCase";
@@ -27,6 +30,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/enterprise" element={<Enterprise />} />
+          <Route path="/careers" element={<Careers />} />
 
           {/* Use Case Routes */}
           <Route path="/use-cases/finance" element={<FinanceUseCase />} />
@@ -36,10 +42,7 @@ const App = () => (
           <Route path="/use-cases/education" element={<EducationUseCase />} />
 
           {/* Other Routes */}
-          <Route path="/pricing" element={<PlaceholderPage title="Pricing" description="Flexible pricing plans for teams of all sizes. Coming soon!" />} />
-          <Route path="/enterprise" element={<PlaceholderPage title="Enterprise" description="Enterprise-grade security, compliance, and support for your organization." />} />
           <Route path="/blog" element={<PlaceholderPage title="Blog" description="Stay up to date with the latest insights, tutorials, and announcements." />} />
-          <Route path="/careers" element={<PlaceholderPage title="Careers" description="Join our team and help build the future of data analytics." />} />
           <Route path="/about" element={<PlaceholderPage title="About" description="Learn more about our mission and the team behind 10x." />} />
           <Route path="/integrations" element={<PlaceholderPage title="Integrations" description="Connect 10x with your favorite tools and data sources." />} />
           <Route path="/changelog" element={<PlaceholderPage title="Changelog" description="See what's new and what's coming next in 10x." />} />
