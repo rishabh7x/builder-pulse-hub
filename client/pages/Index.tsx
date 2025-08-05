@@ -12,11 +12,11 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <div className="flex items-center">
+            <Link to="/" className="flex items-center">
               <div className="text-xl font-bold text-foreground">
                 10x.in
               </div>
-            </div>
+            </Link>
 
             {/* Navigation Menu */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -26,6 +26,72 @@ export default function Index() {
               <Link to="/features" className="text-muted-foreground hover:text-foreground transition-colors">
                 Features
               </Link>
+              
+              {/* Use Cases Dropdown */}
+              <div className="relative group">
+                <button className="text-muted-foreground hover:text-foreground transition-colors flex items-center space-x-1">
+                  <span>Use Cases</span>
+                  <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-80 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-4 space-y-2">
+                    <Link to="/use-cases/finance" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/50 transition-colors group/item">
+                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-lg">💰</span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground group-hover/item:text-primary">Finance</h4>
+                        <p className="text-sm text-muted-foreground">Accurately forecast financial trends</p>
+                      </div>
+                    </Link>
+                    
+                    <Link to="/use-cases/marketing" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/50 transition-colors group/item">
+                      <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-lg">📈</span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground group-hover/item:text-primary">Marketing</h4>
+                        <p className="text-sm text-muted-foreground">Turn messy data into clear insights</p>
+                      </div>
+                    </Link>
+                    
+                    <Link to="/use-cases/data-science" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/50 transition-colors group/item">
+                      <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-lg">🔬</span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground group-hover/item:text-primary">Data Science</h4>
+                        <p className="text-sm text-muted-foreground">Automate complex analyses with ease</p>
+                      </div>
+                    </Link>
+                    
+                    <Link to="/use-cases/scientific-research" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/50 transition-colors group/item">
+                      <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-lg">🧪</span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground group-hover/item:text-primary">Scientific Research</h4>
+                        <p className="text-sm text-muted-foreground">Analyze, visualize, and extract insights</p>
+                      </div>
+                    </Link>
+                    
+                    <Link to="/use-cases/education" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/50 transition-colors group/item">
+                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-lg">🎓</span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground group-hover/item:text-primary">Education</h4>
+                        <p className="text-sm text-muted-foreground">Create and share workflows with students</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
               <Link to="/enterprise" className="text-muted-foreground hover:text-foreground transition-colors">
                 Enterprise
               </Link>
@@ -42,7 +108,7 @@ export default function Index() {
               <Button variant="outline" className="hidden md:block">
                 Download
               </Button>
-
+              
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -59,36 +125,57 @@ export default function Index() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-border/50">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link
-                  to="/pricing"
+                <Link 
+                  to="/pricing" 
                   className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Pricing
                 </Link>
-                <Link
-                  to="/features"
+                <Link 
+                  to="/features" 
                   className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Features
                 </Link>
-                <Link
-                  to="/enterprise"
+                <Link 
+                  to="/use-cases/finance" 
+                  className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Finance Use Cases
+                </Link>
+                <Link 
+                  to="/use-cases/marketing" 
+                  className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Marketing Use Cases
+                </Link>
+                <Link 
+                  to="/use-cases/data-science" 
+                  className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Data Science Use Cases
+                </Link>
+                <Link 
+                  to="/enterprise" 
                   className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Enterprise
                 </Link>
-                <Link
-                  to="/blog"
+                <Link 
+                  to="/blog" 
                   className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Blog
                 </Link>
-                <Link
-                  to="/careers"
+                <Link 
+                  to="/careers" 
                   className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -110,234 +197,139 @@ export default function Index() {
         <div className="hero-gradient absolute inset-0"></div>
         <div className="max-w-4xl mx-auto text-center relative">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            Build Agentic Insights from your{" "}
-            <span className="text-primary">data</span>
+            The Future of{" "}
+            <span className="text-primary">Data Analytics</span>
           </h1>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Reach 10x faster Time to insight with AI
+            Transform your business with AI-powered insights. From finance to research, 10x delivers intelligent analytics across every industry.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">
-              Download for macOS
+              Start Free Trial
             </Button>
             <Button size="lg" variant="outline" className="px-8">
-              All Downloads
+              Explore Use Cases
             </Button>
           </div>
 
-          {/* Trusted By Section */}
+          {/* Industry Showcase */}
           <div className="text-center">
-            <p className="text-sm text-muted-foreground mb-6">Trusted by Data Analysts</p>
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 opacity-60">
-              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">TSL</div>
-              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">Bluecore</div>
-              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">Acme</div>
-              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">DataCo</div>
+            <p className="text-sm text-muted-foreground mb-8">Trusted across industries</p>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+              <Link to="/use-cases/finance" className="flex flex-col items-center space-y-2 p-4 rounded-lg hover:bg-accent/20 transition-colors group">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl">💰</span>
+                </div>
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">Finance</span>
+              </Link>
+              
+              <Link to="/use-cases/marketing" className="flex flex-col items-center space-y-2 p-4 rounded-lg hover:bg-accent/20 transition-colors group">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl">📈</span>
+                </div>
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">Marketing</span>
+              </Link>
+              
+              <Link to="/use-cases/data-science" className="flex flex-col items-center space-y-2 p-4 rounded-lg hover:bg-accent/20 transition-colors group">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl">🔬</span>
+                </div>
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">Data Science</span>
+              </Link>
+              
+              <Link to="/use-cases/scientific-research" className="flex flex-col items-center space-y-2 p-4 rounded-lg hover:bg-accent/20 transition-colors group">
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl">🧪</span>
+                </div>
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">Research</span>
+              </Link>
+              
+              <Link to="/use-cases/education" className="flex flex-col items-center space-y-2 p-4 rounded-lg hover:bg-accent/20 transition-colors group">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl">🎓</span>
+                </div>
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">Education</span>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Cards Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* AI Data Analysts */}
-            <div className="feature-card-blue rounded-xl p-6 text-white relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="w-full h-32 bg-blue-900/30 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-4xl">📊</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">AI Data Analysts</h3>
-                <p className="text-blue-100 text-sm leading-relaxed">
-                  Do you see build fingerprinted Analytics queries? Reduce complexity by providing one click AI analyst tools to the data.
-                </p>
-              </div>
-            </div>
-
-            {/* Knows your workflows */}
-            <div className="feature-card-teal rounded-xl p-6 text-white relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="w-full h-32 bg-teal-900/30 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-4xl">🔗</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Knows your workflows</h3>
-                <p className="text-teal-100 text-sm leading-relaxed">
-                  Get answers from your data pipelines or any big tech that can be extended with one click.
-                </p>
-              </div>
-            </div>
-
-            {/* Ask in natural language */}
-            <div className="gradient-card rounded-xl p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="w-full h-32 bg-muted/30 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-4xl">💬</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Ask in natural language and get trustable answers
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Upload while assisting there is an authenticated from the analyst overall.
-                </p>
-              </div>
-            </div>
-
-            {/* Workflow Orchestration */}
-            <div className="gradient-card rounded-xl p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="w-full h-32 bg-muted/30 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-4xl">⚙️</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Workflow Orchestration: Build Smart Data Pipelines
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Streamline complex data transformations and deploy live models intelligently direct trigger from expert to insight.
-                </p>
-              </div>
-            </div>
-
-            {/* Task Management */}
-            <div className="gradient-card rounded-xl p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="w-full h-32 bg-muted/30 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-4xl">📋</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Task Management: Orchestrate Tasks at Scale
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Write directly. Stent tasks, assign to appropriate level queries across your entire queries data model.
-                </p>
-              </div>
-            </div>
-
-            {/* Advanced Analytics */}
-            <div className="gradient-card rounded-xl p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="w-full h-32 bg-muted/30 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-4xl">📈</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Advanced Analytics: Connect Everything, Analyze Anywhere
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Integrate with 100+ data sources and Excel, but sophisticated clustering and predictive analytics with enterprise grade governance.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Build Insights Faster Section */}
+      {/* Quick Overview Section */}
       <section className="px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              Build insights faster
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              One Platform, Every Industry
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Intelligent, fast, and familiar. 10x is the best way to work with your data and processes.
+              See how 10x transforms data analysis across different sectors with specialized solutions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Frontier Intelligence */}
-            <div className="feature-card-blue rounded-xl p-6 text-center">
-              <div className="w-full h-24 bg-blue-900/30 rounded-lg mb-6 flex items-center justify-center">
-                <div className="text-3xl">🧠</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">Frontier Intelligence</h3>
-              <p className="text-blue-100 text-sm leading-relaxed">
-                Powered by a mix of purpose-built and fine-tuned LLMs, in every insight end User Analytics team.
-              </p>
-            </div>
-
-            {/* Feels Familiar */}
-            <div className="feature-card-teal rounded-xl p-6 text-center">
-              <div className="w-full h-24 bg-teal-900/30 rounded-lg mb-6 flex items-center justify-center">
-                <div className="text-3xl">👥</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">Feels Familiar</h3>
-              <p className="text-teal-100 text-sm leading-relaxed">
-                Import all your statements, frames, and schema and work.
-              </p>
-            </div>
-
-            {/* Privacy Options */}
-            <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-xl p-6 text-center">
-              <div className="w-full h-24 bg-red-900/30 rounded-lg mb-6 flex items-center justify-center">
-                <div className="text-3xl">🔒</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">Privacy Options</h3>
-              <p className="text-red-100 text-sm leading-relaxed">
-                If you enable Privacy Mode your data is never shared outside your model. Your AI SOC 2 compliant.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            Loved by world-class analysts
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
-            <div className="gradient-card rounded-xl p-6">
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                "10x has completely transformed how we approach data. This language queries. We get to build-to-last by language queries down to hours every day, and the insights are incredibly accurate."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  S
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link to="/use-cases/finance" className="group">
+              <div className="bg-gradient-to-br from-purple-500/10 to-blue-600/10 border border-purple-500/20 rounded-xl p-6 hover:from-purple-500/20 hover:to-blue-600/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl">💰</span>
                 </div>
-                <div className="ml-3">
-                  <div className="font-semibold text-foreground">Sarah Chen</div>
-                  <div className="text-sm text-muted-foreground">Senior Data Scientist</div>
-                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Finance</h3>
+                <p className="text-muted-foreground text-sm">Forecast trends, analyze risk, and optimize financial performance with AI-driven insights.</p>
               </div>
-            </div>
+            </Link>
 
-            {/* Testimonial 2 */}
-            <div className="gradient-card rounded-xl p-6">
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                "The AI pipeline development is a game-changer! Amazing speed up data insights happens in minutes. The accuracy and speed are unmatched."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  M
+            <Link to="/use-cases/marketing" className="group">
+              <div className="bg-gradient-to-br from-green-500/10 to-emerald-600/10 border border-green-500/20 rounded-xl p-6 hover:from-green-500/20 hover:to-emerald-600/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl">📈</span>
                 </div>
-                <div className="ml-3">
-                  <div className="font-semibold text-foreground">Marcus Rodriguez</div>
-                  <div className="text-sm text-muted-foreground">Analytics Director</div>
-                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Marketing</h3>
+                <p className="text-muted-foreground text-sm">Transform campaign data into actionable insights and drive growth with precision targeting.</p>
               </div>
-            </div>
+            </Link>
 
-            {/* Testimonial 3 */}
-            <div className="gradient-card rounded-xl p-6">
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                "Finally we can biggest concern, but this CI/CD experience our big data experience. I give us the confidence to adopt it enterprise-wide."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  E
+            <Link to="/use-cases/data-science" className="group">
+              <div className="bg-gradient-to-br from-orange-500/10 to-red-600/10 border border-orange-500/20 rounded-xl p-6 hover:from-orange-500/20 hover:to-red-600/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl">🔬</span>
                 </div>
-                <div className="ml-3">
-                  <div className="font-semibold text-foreground">Emma Thompson</div>
-                  <div className="text-sm text-muted-foreground">Chief Data Officer</div>
-                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Data Science</h3>
+                <p className="text-muted-foreground text-sm">Accelerate complex analyses and build predictive models with automated workflows.</p>
               </div>
-            </div>
+            </Link>
+
+            <Link to="/use-cases/scientific-research" className="group">
+              <div className="bg-gradient-to-br from-teal-500/10 to-cyan-600/10 border border-teal-500/20 rounded-xl p-6 hover:from-teal-500/20 hover:to-cyan-600/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl">🧪</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Scientific Research</h3>
+                <p className="text-muted-foreground text-sm">Streamline research workflows and extract meaningful insights from complex datasets.</p>
+              </div>
+            </Link>
+
+            <Link to="/use-cases/education" className="group">
+              <div className="bg-gradient-to-br from-purple-500/10 to-pink-600/10 border border-purple-500/20 rounded-xl p-6 hover:from-purple-500/20 hover:to-pink-600/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl">🎓</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Education</h3>
+                <p className="text-muted-foreground text-sm">Empower students and educators with interactive data analysis and collaborative workflows.</p>
+              </div>
+            </Link>
+
+            <Link to="/features" className="group">
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-xl p-6 hover:from-primary/20 hover:to-accent/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl">⚡</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">View All Features</h3>
+                <p className="text-muted-foreground text-sm">Explore the complete platform capabilities and see how 10x can transform your workflow.</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
