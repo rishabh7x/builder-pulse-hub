@@ -57,6 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom brand colors for 10x.in
+        brand: {
+          blue: "hsl(var(--brand-blue))",
+          green: "hsl(var(--brand-green))",
+          red: "hsl(var(--brand-red))",
+          orange: "hsl(var(--brand-orange))",
+          purple: "hsl(var(--brand-purple))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
