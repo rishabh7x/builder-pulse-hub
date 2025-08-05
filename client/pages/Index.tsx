@@ -131,11 +131,11 @@ export default function Index() {
           {/* Trusted By Section */}
           <div className="text-center">
             <p className="text-sm text-muted-foreground mb-6">Trusted by Data Analysts</p>
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="text-2xl font-bold text-muted-foreground">TSL</div>
-              <div className="text-2xl font-bold text-muted-foreground">Bluecore</div>
-              <div className="text-2xl font-bold text-muted-foreground">Acme</div>
-              <div className="text-2xl font-bold text-muted-foreground">DataCo</div>
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 opacity-60">
+              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">TSL</div>
+              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">Bluecore</div>
+              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">Acme</div>
+              <div className="text-xl sm:text-2xl font-bold text-muted-foreground">DataCo</div>
             </div>
           </div>
         </div>
