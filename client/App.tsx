@@ -7,8 +7,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Features from "./pages/Features";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/Placeholder";
+import FinanceUseCase from "./pages/FinanceUseCase";
+import MarketingUseCase from "./pages/MarketingUseCase";
+import DataScienceUseCase from "./pages/DataScienceUseCase";
+import ScientificResearchUseCase from "./pages/ScientificResearchUseCase";
+import EducationUseCase from "./pages/EducationUseCase";
 
 const queryClient = new QueryClient();
 
@@ -20,8 +26,17 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/features" element={<Features />} />
+
+          {/* Use Case Routes */}
+          <Route path="/use-cases/finance" element={<FinanceUseCase />} />
+          <Route path="/use-cases/marketing" element={<MarketingUseCase />} />
+          <Route path="/use-cases/data-science" element={<DataScienceUseCase />} />
+          <Route path="/use-cases/scientific-research" element={<ScientificResearchUseCase />} />
+          <Route path="/use-cases/education" element={<EducationUseCase />} />
+
+          {/* Other Routes */}
           <Route path="/pricing" element={<PlaceholderPage title="Pricing" description="Flexible pricing plans for teams of all sizes. Coming soon!" />} />
-          <Route path="/features" element={<PlaceholderPage title="Features" description="Discover all the powerful features that make 10x the best data analytics platform." />} />
           <Route path="/enterprise" element={<PlaceholderPage title="Enterprise" description="Enterprise-grade security, compliance, and support for your organization." />} />
           <Route path="/blog" element={<PlaceholderPage title="Blog" description="Stay up to date with the latest insights, tutorials, and announcements." />} />
           <Route path="/careers" element={<PlaceholderPage title="Careers" description="Join our team and help build the future of data analytics." />} />
